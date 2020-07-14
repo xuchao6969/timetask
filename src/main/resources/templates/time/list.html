@@ -1,0 +1,100 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <link rel="shortcut icon" href="#"/>
+<!--    <link th:src="@{/css/bootstrap.min.css}" rel="stylesheet" xmlns:th="http://www.w3.org/1999/xhtml"/>-->
+    <link th:src="@{/layui/css/layui.css}" rel="stylesheet" xmlns:th="http://www.w3.org/1999/xhtml"/>
+    <script th:src="@{/js/jquery.js}" type="text/javascript"  xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/jquery.min.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/jquery.form.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <!--    <script type="text/javascript" th:src="@{/js/bootstrap/bootstrap.min.js}" xmlns:th="http://www.w3.org/1999/xhtml"></script>-->
+    <script th:src="@{/layui/layui.all.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/common/common.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/time/list.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="main">
+
+    <div class="portlet light bordered">
+        <div class="portlet-body">
+            <div class="table-toolbar">
+                <div class="row">
+                    <button class="btn sbold green" id="addtask" onclick="">
+                        <span class="ladda-label">创建</span>
+                    </button>
+                    <button class="btn sbold blue" id="able" onclick="">
+                        <span class="ladda-label">运行</span>
+                    </button>
+                    <button class="btn sbold red" id="unable" onclick="">
+                        <span class="ladda-label">停止</span>
+                    </button>
+                </div>
+            </div>
+            <table class="table table-striped table-bordered table-hover table-checkable order-column" border="1px"
+                   id="table1">
+                <thead>
+                <tr>
+                    <th><label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                        <input type="checkbox" class="group-checkable" data-set="#table1 .checkboxes"/>
+                        <span></span>
+                    </label></th>
+                    <th>任务名</th>
+                    <th>表达式</th>
+                    <th>运行状态</th>
+                    <th>类名</th>
+                    <th>方法</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${list}" class="checks trs">
+                    <td>
+                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                            <input type="checkbox" class="checkboxes" th:value="${user.id}" value="id" name="id"/>
+                            <span></span>
+                        </label>
+                    </td>
+
+                    <td th:text="${user.name}">任务名</td>
+                    <td th:text="${user.cron}">表达式</td>
+                    <td th:text="${user.is_concurrent}==0?'停止':'运行'">运行状态</td>
+                    <td th:text="${user.bean_name}">类名</td>
+                    <td th:text="${user.method_name}">方法</td>
+                    <td th:text="${user.creat_time}">创建时间</td>
+                    <td>
+                        <div>
+<!--                            <div>-->
+<!--                                <img th:src="@{/css/bianji.png}"-->
+<!--                                th:onclick="|viewById('${user.id}','${user.is_concurrent}')|" title="编辑"/>-->
+<!--                                <img th:src="@{/css/shanchu.png}"-->
+<!--                                th:onclick="|deleteById('${user.id}')|" title="删除"/>-->
+<!--                            </div>-->
+                            <a href="#" th:onclick="viewById([[${user.id}]],[[${user.is_concurrent}]])">编辑</a>&nbsp;&nbsp;
+                            <a href="#" th:onclick="deleteById([[${user.id}]])">删除</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" th:inline="javascript" xmlns:th="http://www.w3.org/1999/xhtml">
+    var rootPath = [[@{/}]]
+
+
+
+
+</script>
+<style>
+    .loginBtn {
+        background: #5cb85c;
+    }
+
+</style>

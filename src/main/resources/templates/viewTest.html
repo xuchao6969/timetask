@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" href="#"/>
+    <meta content="text/html" charset="UTF-8">
+    <script type="text/javascript" th:src="@{/js/jquery.js}" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/jquery.min.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div>
+        <h3>测试thymeleaf</h3>
+    </div>
+    <div>
+        <span th:text="${user.username}"></span>
+    </div>
+</div>
+<div>
+    <span th:text="${user.userRole}"></span>
+</div>
+</body>
+</html>
+<script type="text/javascript" th:inline="javascript" xmlns:th="http://www.w3.org/1999/xhtml">
+
+</script>

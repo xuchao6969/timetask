@@ -1,0 +1,81 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <link rel="shortcut icon" href="#"/>
+    <!--    <link th:src="@{/css/bootstrap.min.css}" rel="stylesheet" xmlns:th="http://www.w3.org/1999/xhtml"/>-->
+    <link th:src="@{/layui/css/layui.css}" rel="stylesheet" xmlns:th="http://www.w3.org/1999/xhtml"/>
+    <script th:src="@{/js/jquery.js}" type="text/javascript"  xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/jquery.min.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/jquery.form.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <!--    <script type="text/javascript" th:src="@{/js/bootstrap/bootstrap.min.js}" xmlns:th="http://www.w3.org/1999/xhtml"></script>-->
+    <script th:src="@{/layui/layui.all.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/common/common.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <script th:src="@{/js/time/add.js}" type="text/javascript" xmlns:th="http://www.w3.org/1999/xhtml"></script>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div class="portlet light bordered">
+
+        <form action="" class="horizontal-form" method="post" id="addForm" autocomplete="off">
+            <div class="tab-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label flex" style="margin-top: 10px;">
+                            <span class="star align-items">*</span>任务名称
+                        </label>
+                        <input type="text" placeholder="请填写任务名称" id="name" name="name" class="form-control"  maxlength="50" th:value="${task.name}"/>
+                        <input type="hidden" id="id" name="id" class="form-control"  maxlength="50" th:value="${task.id}"/>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="control-label flex" style="margin-top: 10px;">
+                            <span class="star align-items">*</span>任务分组
+                        </label>
+                        <input type="text" placeholder="请填写任务分组" id="group_name" name="group_name"  class="form-control"  maxlength="50" th:value="${task.group_name}"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label flex" style="margin-top: 10px;">
+                            <span class="star align-items">*</span>表达式&nbsp;&nbsp;&nbsp;&nbsp;(Cron表达式生成器参考地址：http://cron.qqe2.com )
+                        </label>
+                        <input type="text" placeholder="请填写Cron表达式" id="cron" name="cron"  class="form-control"  maxlength="50" th:value="${task.cron}"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label flex" style="margin-top: 10px;">
+                            <span class="star align-items">*</span>类名
+                        </label>
+                        <input type="text" placeholder="请填写类名" id="bean_name" name="bean_name"  class="form-control" th:value="${task.bean_name}"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label flex" style="margin-top: 10px;">
+                            <span class="star align-items">*</span>方法
+                        </label>
+                        <input type="text" placeholder="请填写方法" id="method_name" name="method_name"  class="form-control"  maxlength="50" th:value="${task.method_name}"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label flex" style="margin-top: 10px;">
+                            任务描述
+                        </label>
+                        <input type="text" placeholder="请填写任务描述" id="discription" name="discription"  class="form-control"  maxlength="50" th:value="${task.discription}"/>
+                    </div>
+                </div>
+                <div>
+                    <label class="control-label flex" style="margin-top: 10px;"></label>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" class="btn blue" id="submitBut">
+                        <i class="fa fa-plus"></i> 保存
+                    </button>
+                    <button class="btn default cancelAdd" type="button" id="cancelBut">
+                        <i class="fa fa-times"></i>取消
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
